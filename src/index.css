@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Wordly Palette - High Contrast Mapping */
+  --color-cream: #E1D9C9; /* Sand (Base Background) */
+  --color-charcoal: #212E40; /* Basalt (Primary Dark Text/Bg) */
+  --color-moss: #525645; /* User reserved green */
+  --color-clay: #7F4B30; /* Ochre (Warm Accent) */
+  --color-accent-blue: #AE9372; /* Stone (Subtle drafting lines/borders) */
+  
+  /* Additional Wordly Swatches for Variety */
+  --color-coffee: #B27D57;
+  --color-gum: #7D8769;
+  --color-pine: #424C21; /* Moss from palette */
+  --color-custom: #525645; /* User reserved green */
+
+  --font-heading: "Plus Jakarta Sans", "Outfit", sans-serif;
+  --font-drama: "Cormorant Garamond", serif;
+  --font-data: "IBM Plex Mono", monospace;
+  --font-body: "Outfit", sans-serif;
+  --font-hand: "Caveat", cursive;
+  --font-draft: "Architects Daughter", cursive;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-moss);
+  }
+}
+
+@layer utilities {
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    pointer-events: none;
+    z-index: 40;
+    opacity: 0.04; /* Significantly reduced opacity for better readability */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply; /* Better for light backgrounds */
+  }
+
+  /* Architectural Drafting Grid */
+  .drafting-grid {
+    background-color: var(--color-cream);
+    background-image: 
+      linear-gradient(var(--color-accent-blue) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-accent-blue) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: -1px -1px;
+    opacity: 0.08; /* Very subtle */
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Fine intersecting construction lines */
+  .construction-line-x {
+    position: absolute;
+    left: -100vw;
+    right: -100vw;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  .construction-line-y {
+    position: absolute;
+    top: -100vh;
+    bottom: -100vh;
+    width: 1px;
+    background: currentColor;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  /* Magnetic button hover effect setup */
+  .btn-magnetic {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+  }
+  
+  .btn-lift {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-lift:hover {
+    transform: translateY(-2px);
+  }
+}
