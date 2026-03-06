@@ -55,22 +55,21 @@ const BookCall = () => {
               return;
           }
 
-          const submissionData = new FormData();
-          submissionData.append("access_key", ACCESS_KEY);
-          submissionData.append("subject", `New Wedding Inquiry from ${formData.name}`);
-          submissionData.append("from_name", formData.name);
-          submissionData.append("replyto", formData.email);
-          submissionData.append("name", formData.name);
-          submissionData.append("email", formData.email);
-          submissionData.append("date", formData.date);
-          submissionData.append("message", formData.message);
-
           const response = await fetch("https://api.web3forms.com/submit", {
               method: "POST",
-              body: submissionData,
               headers: {
-                  Accept: "application/json",
-              }
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                  access_key: ACCESS_KEY,
+                  subject: `New Wedding Inquiry from ${formData.name}`,
+                  from_name: formData.name,
+                  replyto: formData.email,
+                  name: formData.name,
+                  email: formData.email,
+                  date: formData.date,
+                  message: formData.message
+              })
           });
 
           const result = await response.json();
