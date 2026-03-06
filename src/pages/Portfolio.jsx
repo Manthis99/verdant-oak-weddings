@@ -252,35 +252,35 @@ export const VideoArchive = () => {
                     <div className="w-full mb-20 md:mb-32">
                         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
                             {/* Main Feature: Video 1 */}
-                            <div className="col-span-1 md:col-span-12 relative group cursor-pointer video-row" onClick={() => setActiveVideoIndex(activeVideoIndex === 0 ? null : 0)}>
-                                <div className="relative w-full aspect-[4/3] sm:aspect-[2/1] lg:aspect-[2.8/1] bg-black rounded-[2rem] overflow-hidden shadow-2xl mb-6 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500">
-                                    <img src={videos[0].thumb} alt={videos[0].client} className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="w-20 h-20 rounded-full bg-charcoal/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-xl">
-                                            <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                                        </div>
-                                    </div>
-                                    <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 text-white">
-                                        <span className="font-data text-xs md:text-sm text-white/70 uppercase tracking-widest mb-3 block">{videos[0].category}</span>
-                                        <h3 className="font-drama italic text-5xl md:text-7xl lg:text-[5rem] text-cream leading-tight">{videos[0].title}</h3>
-                                    </div>
-                                </div>
-                                
-                                {/* Expanded Detail / Video Player */}
-                                <div className={`relative z-50 isolate mix-blend-normal overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeVideoIndex === 0 ? 'max-h-[1000px] mt-6 pb-6' : 'max-h-0'}`}>
-                                    <div className="relative w-full aspect-video bg-black rounded-[2rem] overflow-hidden shadow-2xl border border-charcoal/10">
-                                        {activeVideoIndex === 0 && (
-                                            <iframe 
-                                                className="absolute top-0 left-0 w-full h-full"
-                                                src={`https://www.youtube.com/embed/${videos[0].id}?autoplay=1&modestbranding=1&rel=0`}
-                                                title={videos[0].title}
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                frameBorder="0"
-                                            ></iframe>
-                                        )}
-                                    </div>
+                            <div className="col-span-1 md:col-span-12 relative video-row">
+                                <div 
+                                    className="relative w-full aspect-[4/3] sm:aspect-[2/1] lg:aspect-[2.8/1] bg-black rounded-[2rem] overflow-hidden shadow-2xl mb-6 group cursor-pointer group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500"
+                                    onClick={() => setActiveVideoIndex(activeVideoIndex === 0 ? null : 0)}
+                                >
+                                    {activeVideoIndex === 0 ? (
+                                        <iframe 
+                                            className="absolute top-0 left-0 w-full h-full"
+                                            src={`https://www.youtube.com/embed/${videos[0].id}?autoplay=1&modestbranding=1&rel=0`}
+                                            title={videos[0].title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            frameBorder="0"
+                                        ></iframe>
+                                    ) : (
+                                        <>
+                                            <img src={videos[0].thumb} alt={videos[0].client} className="w-full h-full object-cover object-center opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="w-20 h-20 rounded-full bg-charcoal/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-xl">
+                                                    <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                                </div>
+                                            </div>
+                                            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 text-white">
+                                                <span className="font-data text-xs md:text-sm text-white/70 uppercase tracking-widest mb-3 block">{videos[0].category}</span>
+                                                <h3 className="font-drama italic text-5xl md:text-7xl lg:text-[5rem] text-cream leading-tight">{videos[0].title}</h3>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                                 
                                 <div className="flex items-center justify-between text-charcoal px-2">
@@ -295,36 +295,36 @@ export const VideoArchive = () => {
 
                             {/* Feature 2 & 3 */}
                             {[1, 2].map(i => (
-                                <div key={i} className="col-span-1 md:col-span-6 relative group cursor-pointer mt-8 md:mt-0 video-row" onClick={() => setActiveVideoIndex(activeVideoIndex === i ? null : i)}>
-                                    <div className="relative w-full aspect-[4/3] sm:aspect-video bg-black rounded-[2rem] overflow-hidden shadow-xl mb-6 group-hover:shadow-2xl transition-all duration-500">
-                                        {/* Apply object-position to shift the Walker frame down slightly to hide the top black screen recording border */}
-                                        <img src={videos[i].thumb} alt={videos[i].client} className={`w-full h-full object-cover ${i === 2 ? 'object-[center_12%]' : 'object-center'} opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out`} />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="w-16 h-16 rounded-full bg-charcoal/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-lg">
-                                                <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                                            </div>
-                                        </div>
-                                        <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 text-white">
-                                            <span className="font-data text-[10px] md:text-xs text-white/70 uppercase tracking-widest mb-2 block">{videos[i].category}</span>
-                                            <h3 className="font-drama italic text-3xl md:text-5xl text-cream leading-tight">{videos[i].title}</h3>
-                                        </div>
-                                    </div>
-
-                                    {/* Expanded Detail / Video Player */}
-                                    <div className={`relative z-50 isolate mix-blend-normal overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeVideoIndex === i ? 'max-h-[800px] mt-6 pb-6' : 'max-h-0'}`}>
-                                        <div className="relative w-full aspect-video bg-black rounded-[2rem] overflow-hidden shadow-2xl border border-charcoal/10">
-                                            {activeVideoIndex === i && (
-                                                <iframe 
-                                                    className="absolute top-0 left-0 w-full h-full"
-                                                    src={`https://www.youtube.com/embed/${videos[i].id}?autoplay=1&modestbranding=1&rel=0`}
-                                                    title={videos[i].title}
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowFullScreen
-                                                    frameBorder="0"
-                                                ></iframe>
-                                            )}
-                                        </div>
+                                <div key={i} className="col-span-1 md:col-span-6 relative video-row">
+                                    <div 
+                                        className="relative w-full aspect-[4/3] sm:aspect-video bg-black rounded-[2rem] overflow-hidden shadow-xl mb-6 group cursor-pointer group-hover:shadow-2xl transition-all duration-500"
+                                        onClick={() => setActiveVideoIndex(activeVideoIndex === i ? null : i)}
+                                    >
+                                        {activeVideoIndex === i ? (
+                                            <iframe 
+                                                className="absolute top-0 left-0 w-full h-full"
+                                                src={`https://www.youtube.com/embed/${videos[i].id}?autoplay=1&modestbranding=1&rel=0`}
+                                                title={videos[i].title}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                frameBorder="0"
+                                            ></iframe>
+                                        ) : (
+                                            <>
+                                                {/* Apply object-position to shift the Walker frame down slightly to hide the top black screen recording border */}
+                                                <img src={videos[i].thumb} alt={videos[i].client} className={`w-full h-full object-cover ${i === 2 ? 'object-[center_12%]' : 'object-center'} opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out`} />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <div className="w-16 h-16 rounded-full bg-charcoal/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                                                        <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                                    </div>
+                                                </div>
+                                                <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 text-white">
+                                                    <span className="font-data text-[10px] md:text-xs text-white/70 uppercase tracking-widest mb-2 block">{videos[i].category}</span>
+                                                    <h3 className="font-drama italic text-3xl md:text-5xl text-cream leading-tight">{videos[i].title}</h3>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
 
                                     <div className="flex items-center justify-between text-charcoal px-2">
