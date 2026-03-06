@@ -384,10 +384,15 @@ const WeddingGuide = () => {
 
         <div className="flex gap-4 px-4 overflow-x-auto pb-8 snap-x" style={{ scrollbarWidth: 'none' }}>
            {[
-               "/assets/wedding/wedding guide photos/Evan Maggie Wedding-19.jpg",
-               "/assets/wedding/wedding guide photos/Wise Wedding-148.jpg",
-               "/assets/wedding/wedding guide photos/A7309658.jpg",
-               "/assets/wedding/wedding guide photos/Wright-89.jpg"
+               "/assets/wedding/evan_maggie_france-2025-18.jpg",
+               "/assets/wedding/evan_maggie_france-2025-24.jpg",
+               "/assets/wedding/evan_maggie_france-2025-26.jpg",
+               "/assets/wedding/evan_maggie_france-2025-29.jpg",
+               "/assets/wedding/evan_maggie_france-2025-60.jpg",
+               "/assets/wedding/evan_maggie_france-2025-61.jpg",
+               "/assets/wedding/evan_maggie_france-2025-62.jpg",
+               "/assets/wedding/france-2025-136.jpg",
+               "/assets/wedding/france-2025-139.jpg"
            ].map((img, i) => (
                <div key={i} className="min-w-[80vw] md:min-w-[400px] h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden grayscale active:grayscale-0 hover:grayscale-0 transition-all duration-700 pointer-events-auto">
                    <img src={img} alt="Destination Preview" className="w-full h-full object-cover pointer-events-none" />
