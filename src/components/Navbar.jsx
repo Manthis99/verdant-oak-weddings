@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 font-body text-sm font-medium">
           <a href="#/" className="hover:opacity-70 transition-opacity">Weddings</a>
-          <a href="#/wedding-guide" className="hover:opacity-70 transition-opacity">The Guide</a>
+          <a href="#/wedding-access" className="hover:opacity-70 transition-opacity">The Guide</a>
           <a href="#/about" className="hover:opacity-70 transition-opacity">About</a>
           <a href="#/access" className="hover:opacity-70 transition-opacity">Investment Guide</a>
         </div>
@@ -73,7 +73,7 @@ const Navbar = () => {
       >
         <div className="flex flex-col items-center text-center gap-8 font-heading text-3xl text-moss">
           <a href="#/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-clay transition-colors">Weddings</a>
-          <a href="#/wedding-guide" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-clay transition-colors">The Guide</a>
+          <a href="#/wedding-access" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-clay transition-colors">The Guide</a>
           <a href="#/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-clay transition-colors">About</a>
           <a href="#/access" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-clay transition-colors">Investment Guide</a>
           <a href="#/book" onClick={() => setIsMobileMenuOpen(false)} className="mt-8 px-10 py-5 bg-moss text-cream rounded-full font-heading font-semibold text-lg hover:bg-moss/90 btn-magnetic shadow-lg">

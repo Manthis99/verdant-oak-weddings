@@ -1,13 +1,56 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { servicesData } from '../utils/pricingData';
+
+const LightPricingCard = ({ pkg, isMiddle }) => (
+    <div className={`flex flex-col relative transition-all duration-500 ease-out p-8 md:p-10 rounded-3xl ${isMiddle ? 'bg-moss text-cream lg:scale-[1.03] shadow-2xl relative z-10' : 'bg-cream text-charcoal border border-charcoal/10 shadow-lg'}`}>
+        {isMiddle && <div className="absolute top-0 left-0 w-full h-2 bg-clay rounded-t-3xl" />}
+        {!isMiddle && <div className="absolute top-0 left-0 w-full h-2 bg-charcoal/5 group-hover:bg-moss transition-colors rounded-t-3xl" />}
+
+        {pkg.note && (
+             <div className="relative pl-4 mb-6">
+                 <div className={`absolute left-0 top-1 bottom-1 w-[3px] ${isMiddle ? 'bg-clay' : 'bg-moss/40'}`}></div>
+                 <p className={`italic text-sm md:text-base ${isMiddle ? 'text-cream/90' : 'text-charcoal/70'}`}>{pkg.note}</p>
+             </div>
+        )}
+
+        <h3 className={`font-heading font-black text-3xl uppercase tracking-tight mb-2 ${isMiddle ? 'text-white' : 'text-charcoal'}`}>{pkg.name}</h3>
+        <div className={`font-drama italic text-5xl mb-8 ${isMiddle ? 'text-cream' : 'text-charcoal'}`}>{pkg.price}</div>
+        
+        <div className={`flex flex-col gap-4 font-body text-lg leading-relaxed flex-grow border-t pt-8 ${isMiddle ? 'border-cream/10 text-cream/90' : 'border-charcoal/10 text-charcoal/80'}`}>
+            <p className="flex items-start gap-4"><span className={`${isMiddle ? 'text-clay' : 'text-cream/50'} mt-1`}>✦</span> <span>Up to <strong>{pkg.hours}</strong> of coverage</span></p>
+            <p className="flex items-start gap-4"><span className={`${isMiddle ? 'text-clay' : 'text-cream/50'} mt-1`}>✦</span> <span><strong>{pkg.shooters}</strong></span></p>
+            <p className="flex items-start gap-4"><span className={`${isMiddle ? 'text-clay' : 'text-cream/50'} mt-1`}>✦</span> <span>{pkg.deliverable}</span></p>
+            
+            {pkg.extras.map((extra, idx) => (
+                <p key={idx} className="flex items-start gap-4"><span className={`${isMiddle ? 'text-clay' : 'text-cream/50'} mt-1`}>✦</span> <span>{extra}</span></p>
+            ))}
+
+            {pkg.bestFor && (
+                <div className="mt-4 pt-6 border-t border-inherit">
+                    <p className="font-bold mb-2">Best for:</p>
+                    <p className="text-sm md:text-base opacity-80">{pkg.bestFor}</p>
+                </div>
+            )}
+        </div>
+    </div>
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WeddingGuide = () => {
   const containerRef = useRef(null);
+  const gridRef = useRef(null);
+  const [activeTab, setActiveTab] = useState('both');
 
   useEffect(() => {
+    // PROTECT ROUTE: Check if unlocked
+    if (localStorage.getItem('unlocked_wedding_guide') !== 'true') {
+        window.location.hash = '#/wedding-access';
+        return;
+    }
+
     // Scroll to top on mount
     window.scrollTo(0, 0);
 
@@ -58,6 +101,14 @@ const WeddingGuide = () => {
 
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+      if (!gridRef.current) return;
+      gsap.fromTo(gridRef.current.children, 
+          { y: 20, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out', overwrite: true }
+      );
+  }, [activeTab]);
 
   return (
     <div ref={containerRef} className="bg-cream min-h-screen text-charcoal font-body overflow-hidden">
@@ -245,38 +296,34 @@ const WeddingGuide = () => {
 
       {/* 4.5 WEDDING COLLECTIONS */}
       <section id="section-packages" className="py-24 px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-16 fade-up-section">
-            <h2 className="font-heading font-black text-6xl md:text-8xl tracking-tighter uppercase mb-4">The Investment</h2>
-            <p className="font-drama italic text-3xl text-moss">Wedding Collections</p>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 fade-up-section">
+            <div className="text-left">
+                <p className="font-drama italic text-3xl text-moss mb-2">Wedding Collections</p>
+                <h2 className="font-heading font-black text-6xl md:text-8xl tracking-tighter uppercase mb-4">The Investment</h2>
+            </div>
+            
+            {/* The Toggle */}
+            <div className="bg-cream border border-charcoal/10 p-1.5 rounded-[2rem] md:rounded-full flex flex-wrap md:flex-nowrap justify-center gap-1 self-start md:self-end shrink-0 w-full md:w-auto shadow-sm">
+                {['video', 'photo', 'both'].map((tab) => (
+                    <button 
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`px-4 md:px-6 py-3 rounded-full font-heading font-semibold text-xs md:text-sm transition-all duration-300 flex-grow md:flex-grow-0 whitespace-nowrap ${
+                            activeTab === tab 
+                            ? 'bg-moss text-cream shadow-md' 
+                            : 'text-charcoal/50 hover:text-charcoal hover:bg-black/5'
+                        }`}
+                    >
+                        {tab === 'video' ? 'Videography' : tab === 'photo' ? 'Photography' : 'The Full Suite'}
+                    </button>
+                ))}
+            </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-            {/* Collection 1 */}
-            <div className="bg-cream border border-charcoal/10 rounded-[2rem] p-12 relative overflow-hidden hover:border-moss/50 transition-colors group fade-up-section">
-                <div className="absolute top-0 left-0 w-full h-2 bg-charcoal/5 group-hover:bg-moss transition-colors" />
-                <h3 className="font-heading font-black text-3xl uppercase tracking-tight mb-2">Collection One</h3>
-                <div className="font-drama italic text-5xl text-charcoal mb-8">$3,000</div>
-                <ul className="space-y-4 mb-12">
-                    <li className="flex gap-4"><span className="text-moss">✦</span> 8 hours of wedding day coverage</li>
-                    <li className="flex gap-4"><span className="text-moss">✦</span> Complimentary engagement session</li>
-                    <li className="flex gap-4"><span className="text-moss">✦</span> Online digital gallery delivery</li>
-                    <li className="flex gap-4"><span className="text-moss">✦</span> Custom wedding day timeline</li>
-                    <li className="flex gap-4"><span className="text-moss">✦</span> Print release rights</li>
-                </ul>
-            </div>
-            {/* Collection 2 */}
-            <div className="bg-moss text-cream rounded-[2rem] p-12 relative overflow-hidden group fade-up-section shadow-xl hover:shadow-2xl transition-shadow">
-                <div className="absolute top-0 left-0 w-full h-2 bg-clay" />
-                <h3 className="font-heading font-black text-3xl uppercase tracking-tight mb-2">Collection Two</h3>
-                <div className="font-drama italic text-5xl text-cream mb-8">$3,500</div>
-                <ul className="space-y-4 mb-12">
-                    <li className="flex gap-4"><span className="text-clay">✦</span> 10 hours of wedding day coverage</li>
-                    <li className="flex gap-4"><span className="text-clay">✦</span> Complimentary engagement session</li>
-                    <li className="flex gap-4"><span className="text-clay">✦</span> Online digital gallery delivery</li>
-                    <li className="flex gap-4"><span className="text-clay">✦</span> Custom wedding day timeline</li>
-                    <li className="flex gap-4"><span className="text-clay">✦</span> Print release rights</li>
-                </ul>
-            </div>
+        <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-24">
+            {servicesData[activeTab].map((pkg, idx) => (
+                <LightPricingCard key={`${activeTab}-${idx}`} pkg={pkg} isMiddle={idx === 1} />
+            ))}
         </div>
 
         {/* 4.6 ADD ONS */}

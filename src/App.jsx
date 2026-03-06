@@ -6,6 +6,7 @@ import BookCall from './pages/BookCall';
 import Portfolio from './pages/Portfolio';
 import Weddings from './pages/Weddings';
 import WeddingGuide from './pages/WeddingGuide';
+import WeddingAccess from './pages/WeddingAccess';
 import InvestmentGuide from './pages/InvestmentGuide';
 import InvestmentAccess from './pages/InvestmentAccess';
 
@@ -43,6 +44,7 @@ const App = () => {
       {currentRoute === '/' && <Weddings />}
       {currentRoute === '/about' && <About />}
       {currentRoute === '/book' && <BookCall />}
+      {currentRoute === '/wedding-access' && <WeddingAccess />}
       {currentRoute === '/wedding-guide' && <WeddingGuide />}
       {currentRoute === '/investment' && <InvestmentGuide />}
       {currentRoute === '/access' && <InvestmentAccess />}
@@ -50,7 +52,7 @@ const App = () => {
       {currentRoute === '/portfolio' && <Portfolio />}
       {/* {currentRoute === '/weddings' && <Weddings />} */}
       
-      <Footer hidePreFooter={currentRoute === '/' || currentRoute === '/book' || currentRoute === '/investment' || currentRoute === '/access' || currentRoute === '/portfolio'} />
+      <Footer hidePreFooter={currentRoute === '/' || currentRoute === '/book' || currentRoute === '/investment' || currentRoute === '/access' || currentRoute === '/portfolio' || currentRoute === '/wedding-access'} />
     </div>
   );
 };

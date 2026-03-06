@@ -34,30 +34,30 @@ const AboutHero = () => {
         <h1 className="hero-text font-drama italic text-6xl md:text-8xl lg:text-[7rem] leading-[1.05] tracking-tight max-w-4xl mb-12">
           I document moments <br />that <span className="text-[#D98A6C]">outlast us.</span>
         </h1>
-        <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start pb-12">
-          <div className="hero-text max-w-2xl flex-shrink-0 relative z-20">
-            <p className="font-body text-cream/90 text-xl leading-relaxed">
+        <div className="flex flex-col md:flex-row gap-12 lg:gap-16 items-center md:items-start pb-12">
+          <div className="hero-text md:w-3/5 relative z-20">
+            <p className="font-body text-cream/90 text-xl md:text-2xl leading-relaxed">
               For the last several years, I’ve worked at the intersection of creativity, operations, and visual storytelling. I’ve led marketing teams, launched campaigns, and helped businesses clarify their message.
             </p>
             <br/>
-            <p className="font-body text-cream/90 text-lg leading-relaxed border-l-2 border-moss/40 pl-6">
+            <p className="font-body text-cream/90 text-lg md:text-xl leading-relaxed border-l-2 border-moss/40 pl-6">
               But under all of that, I’ve always been drawn to something deeper. I’m not just interested in beautiful imagery. <strong className="text-cream">I’m interested in legacy.</strong>
             </p>
           </div>
           
           {/* Headshot 1: Hero Polaroid */}
-          <div className="hero-text relative w-full sm:max-w-[480px] mx-auto md:mx-0 md:ml-auto mt-16 md:mt-0 p-4 bg-[#F9F8F6] shadow-2xl rotate-2 hover:rotate-0 hover:-translate-y-2 transition-transform duration-500 border border-cream/5 z-10 group">
+          <div className="hero-text relative w-[85%] sm:w-2/3 md:w-2/5 mx-auto mt-16 md:mt-0 p-5 md:p-6 bg-[#F9F8F6] shadow-2xl rotate-2 hover:rotate-0 hover:-translate-y-2 transition-transform duration-500 border border-cream/5 z-10 group">
              {/* Tape effect */}
-             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 bg-white/40 backdrop-blur-md rotate-[-2deg] shadow-sm mix-blend-screen opacity-60 z-20"></div>
+             <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-10 bg-white/40 backdrop-blur-md rotate-[-2deg] shadow-sm mix-blend-screen opacity-70 z-20"></div>
              
              <img src="/assets/headshot-1.jpg" alt="Michael Proctor" className="w-full aspect-[3/4] object-cover filter contrast-105" />
              
-             <div className="mt-4 pb-2 px-2 flex justify-between items-end border-t border-charcoal/5 pt-3">
-                 <span className="font-data text-[10px] text-charcoal/40 uppercase tracking-widest font-semibold flex items-center gap-2">
-                   <span className="w-1.5 h-1.5 rounded-full bg-clay"></span>
+             <div className="mt-5 pb-2 px-2 flex justify-between items-end border-t border-charcoal/10 pt-4">
+                 <span className="font-data text-xs text-charcoal/50 uppercase tracking-widest font-semibold flex items-center gap-2">
+                   <span className="w-2 h-2 rounded-full bg-clay"></span>
                    Creative Director
                  </span>
-                 <span className="font-hand text-2xl text-charcoal/80 -rotate-3">Michael.</span>
+                 <span className="font-hand text-4xl text-charcoal/80 -rotate-3">Michael.</span>
              </div>
           </div>
         </div>

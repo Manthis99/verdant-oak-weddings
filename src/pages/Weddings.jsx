@@ -215,7 +215,7 @@ const SplitCTA = () => {
                     <p className="font-body text-moss/70 text-lg mb-12 max-w-sm">
                         Tell me about your day, your vision, and what matters most to you.
                     </p>
-                    <a href="mailto:info@verdantoakcreative.com" className="inline-block px-10 py-5 bg-clay text-cream rounded-full font-heading font-semibold text-lg hover:bg-clay/90 btn-magnetic shadow-lg shadow-clay/20 self-start text-center">
+                    <a href="#/book" className="inline-block px-10 py-5 bg-clay text-cream rounded-full font-heading font-semibold text-lg hover:bg-clay/90 btn-magnetic shadow-lg shadow-clay/20 self-start text-center">
                         Email Michael
                     </a>
                 </div>

@@ -4,113 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const servicesData = {
-    video: [
-        {
-            name: "The Essential",
-            price: "$4,000",
-            hours: "6 hours",
-            shooters: "One lead videographer",
-            deliverable: "A carefully edited wedding film that reflects how the day actually felt.",
-            extras: [],
-            bestFor: "Smaller weddings, shorter timelines, or couples who value simplicity and presence over scale."
-        },
-        {
-            name: "The Classic",
-            price: "$5,500",
-            hours: "8 hours",
-            shooters: "Two videographers",
-            deliverable: "Vows professionally recorded and woven into the film.",
-            extras: [
-                "Drone footage, when location and conditions allow.",
-                "Engagement session included."
-            ],
-            note: "This is the most well-rounded option and works beautifully for the majority of weddings."
-        },
-        {
-            name: "The Premium",
-            price: "$6,500",
-            hours: "10 hours",
-            shooters: "Two videographers",
-            deliverable: "Vows and speeches recorded.",
-            extras: [
-                "Drone footage, when location and conditions allow.",
-                "Engagement session included."
-            ]
-        }
-    ],
-    photo: [
-        {
-            name: "The Essential",
-            price: "$3,500",
-            hours: "6 hours",
-            shooters: "One lead photographer",
-            deliverable: "A curated, high-resolution gallery telling the honest story of your day.",
-            extras: [],
-            bestFor: "Intimate celebrations or focused timelines where key moments happen closely together."
-        },
-        {
-            name: "The Classic",
-            price: "$4,800",
-            hours: "8 hours",
-            shooters: "Two photographers",
-            deliverable: "Comprehensive coverage from getting ready through open dancing.",
-            extras: [
-                "High-resolution digital gallery with print rights.",
-                "Engagement session included."
-            ],
-            note: "The sweet spot for capturing the full narrative arc of your wedding celebration."
-        },
-        {
-            name: "The Premium",
-            price: "$5,800",
-            hours: "10 hours",
-            shooters: "Two photographers",
-            deliverable: "Extended coverage encompassing the entire timeline.",
-            extras: [
-                "High-resolution digital gallery with print rights.",
-                "Engagement session included.",
-                "Sneak peek gallery delivered within 48 hours."
-            ]
-        }
-    ],
-    both: [
-        {
-            name: "The Essential Duo",
-            price: "$7,000",
-            hours: "6 hours",
-            shooters: "One photographer + One videographer",
-            deliverable: "A cohesive, cinematic film and a timeless photo gallery capturing the core moments of your day.",
-            extras: [],
-            bestFor: "Couples wanting high-quality dual coverage for a more streamlined timeline."
-        },
-        {
-            name: "The Classic Suite",
-            price: "$9,500",
-            hours: "8 hours",
-            shooters: "Two photographers + Two videographers",
-            deliverable: "Full-day documentary coverage yielding a premium film (with vows/audio woven in) and an extensive photo gallery.",
-            extras: [
-                "Drone footage, when conditions allow.",
-                "Dual-Service Engagement session included."
-            ],
-            note: "Our most booked hybrid package. Complete visual documentation of your celebration."
-        },
-        {
-            name: "The Legacy Suite",
-            price: "$11,500",
-            hours: "10 hours",
-            shooters: "Two photographers + Two videographers",
-            deliverable: "No moment missed. Extended coverage yielding a feature-length feeling film and a massive, curated photo gallery.",
-            extras: [
-                "Vows and speeches recorded and incorporated.",
-                "Drone footage, when conditions allow.",
-                "Dual-Service Engagement session included.",
-                "Expedited Sneak Peek photo gallery."
-            ]
-        }
-    ]
-};
+import { servicesData } from '../utils/pricingData';
 
 const PricingCard = ({ pkg, isMiddle }) => (
     <div className={`flex flex-col relative transition-all duration-500 ease-out p-6 md:p-8 rounded-3xl ${isMiddle ? 'bg-white/5 border border-clay/30 lg:scale-[1.03] shadow-2xl relative z-10' : 'bg-transparent border border-white/5'}`}>
@@ -229,7 +123,7 @@ const InvestmentGuide = () => {
                     <div className="md:col-span-5 h-[400px] relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl group">
                         <div className="absolute inset-0 bg-moss/20 mix-blend-multiply z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                         <img 
-                            src={activeTab === 'photo' ? "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2940&auto=format&fit=crop" : activeTab === 'both' ? "https://images.unsplash.com/photo-1542042161784-26ab9e041e89?q=80&w=2940&auto=format&fit=crop" : "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2940&auto=format&fit=crop"} 
+                            src={activeTab === 'photo' ? "/assets/wedding/Cass and Cory Wedding Screen Grabs_1.4.1.jpg" : activeTab === 'both' ? "/assets/wedding/Wright Wedding-18.jpg" : "/assets/wedding/Evan Maggie Wedding-10.jpg"} 
                             alt="Wedding documentation" 
                             className="w-full h-full object-cover grayscale-[30%] transform group-hover:scale-105 transition-transform duration-[2s]"
                         />
@@ -248,17 +142,16 @@ const InvestmentGuide = () => {
 
                 {/* Interstitial Imagery row before CTA */}
                 <div className="mt-24 mb-16 grid grid-cols-2 md:grid-cols-4 gap-4 px-4 stagger-fade opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700">
-                     <div className="aspect-square rounded-2xl overflow-hidden"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2940&auto=format&fit=crop" alt="Detail" className="w-full h-full object-cover"/></div>
-                     <div className="aspect-square rounded-2xl overflow-hidden md:translate-y-8"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2940&auto=format&fit=crop" alt="Detail" className="w-full h-full object-cover"/></div>
-                     <div className="aspect-square rounded-2xl overflow-hidden hidden md:block"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2940&auto=format&fit=crop" alt="Detail" className="w-full h-full object-cover"/></div>
-                     <div className="aspect-square rounded-2xl overflow-hidden hidden md:block md:translate-y-8"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2940&auto=format&fit=crop" alt="Detail" className="w-full h-full object-cover"/></div>
+                     <div className="aspect-square rounded-2xl overflow-hidden"><img src="/assets/wedding/evan_maggie_france-2025-24.jpg" alt="Detail" className="w-full h-full object-cover"/></div>
+                     <div className="aspect-square rounded-2xl overflow-hidden md:translate-y-8"><img src="/assets/wedding/Esther and Zeke Engagment-137.jpg" alt="Detail" className="w-full h-full object-cover"/></div>
+                     <div className="aspect-square rounded-2xl overflow-hidden hidden md:block"><img src="/assets/wedding/Wright Wedding-19.jpg" alt="Detail" className="w-full h-full object-cover"/></div>
+                     <div className="aspect-square rounded-2xl overflow-hidden hidden md:block md:translate-y-8"><img src="/assets/wedding/Cass and Cory Wedding Screen Grabs_1.7.1.jpg" alt="Detail" className="w-full h-full object-cover"/></div>
                 </div>
 
                 {/* Bottom CTA */}
                 <div className="mt-8 text-center stagger-fade pt-16 relative">
                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-clay/50 to-transparent"></div>
-                     <p className="font-body text-cream/80 text-xl mb-8">Ready to secure your date or have questions?</p>
-                     <a href="mailto:info@verdantoakcreative.com" className="inline-block px-10 py-5 bg-clay text-cream rounded-[2rem] font-heading font-semibold text-lg hover:bg-clay/90 btn-magnetic shadow-lg shadow-clay/20 text-center transition-all duration-300">
+                     <a href="#/book" className="inline-block px-10 py-5 bg-clay text-cream rounded-[2rem] font-heading font-semibold text-lg hover:bg-clay/90 btn-magnetic shadow-lg shadow-clay/20 text-center transition-all duration-300">
                         Inquire with Michael
                     </a>
                 </div>
