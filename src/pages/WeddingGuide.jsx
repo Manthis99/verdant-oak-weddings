@@ -412,8 +412,8 @@ const WeddingGuide = () => {
                 </p>
             </div>
             <div className="w-full md:w-2/3 grid grid-cols-2 gap-4">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-xl"><img src="/assets/wedding/wedding guide photos/Wise Wedding-696.jpg" className="w-full h-full object-cover" alt="Engagement"/></div>
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mt-12 shadow-xl"><img src="/assets/wedding/wedding guide photos/A7309921.jpg" className="w-full h-full object-cover" alt="Engagement"/></div>
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-xl"><img src="/assets/wedding/Esther and Zeke Engagment-12.jpg" className="w-full h-full object-cover" alt="Engagement"/></div>
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mt-12 shadow-xl"><img src="/assets/wedding/Esther and Zeke Engagment-137.jpg" className="w-full h-full object-cover" alt="Engagement"/></div>
             </div>
         </div>
       </section>
