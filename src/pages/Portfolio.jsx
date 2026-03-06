@@ -223,7 +223,7 @@ export const VideoArchive = () => {
         { client: "Colton & Carlee Day", title: "Destination Story", category: "Documentary", date: "2024", id: "VQg4Yzz4mBI", thumb: "/assets/wedding/carlee_colton_thumb.png" },
         { client: "Robby & Jordan Tucker", title: "Wedding Film", category: "Highlight", date: "2024", id: "flrePRRpblM", thumb: "/assets/wedding/robby_jordan_thumb.png" },
         { client: "Tommy & Katy Rivera", title: "Telling It Honestly", category: "Super 8 & Digital", date: "2023", id: "J4ztqwfltq0", thumb: "/assets/wedding/tommy_katy_thumb.jpg" },
-        { client: "Noah & Kate", title: "Moments That Matter", category: "Highlight Film", date: "2023", id: "jyub_SdF4co", thumb: "/assets/wedding/A7309466.jpg" },
+        { client: "Noah & Kate", title: "Moments That Matter", category: "Highlight Film", date: "2023", id: "jyub_SdF4co", thumb: "/assets/wedding/noah_kate_thumb.jpg" },
         { client: "CJ & Elli", title: "The Visual Archive", category: "Feature Film", date: "2023", id: "F3fkYijcLw8", thumb: "/assets/wedding/cj_elli_thumb.png" },
         { client: "Preston & Jessika", title: "A Celebration of Love", category: "Highlight", date: "2023", id: "QNawhCavyZY", thumb: "/assets/wedding/preston_jessika_thumb.jpg" },
         { client: "Sam & Alyssa Freed", title: "Together Forever", category: "Highlight", date: "2023", id: "LjPIrZ5ZDtM", thumb: "/assets/wedding/sam_alyssa_thumb.png" },
