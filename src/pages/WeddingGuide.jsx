@@ -415,8 +415,8 @@ const WeddingGuide = () => {
             <div className="w-full md:w-2/3">
                 <div className="flex gap-4 px-4 overflow-x-auto pb-8 snap-x" style={{ scrollbarWidth: 'none' }}>
                     {[
-                        "/assets/wedding/Esther and Zeke Engagment-12.jpg",
-                        "/assets/wedding/Matthew and Kayla Engagement Photo.jpg",
+                        "/assets/wedding/Esther and Zeke Engagment-132.jpg",
+                        "/assets/wedding/Noah Kate Kenney engagement.jpg",
                         "/assets/wedding/Esther and Zeke Engagment-137.jpg",
                         "/assets/wedding/Camp_Eggie-Michaels_edits-engagement-76.jpg",
                         "/assets/wedding/Esther and Zeke Engagment-123.jpg",
