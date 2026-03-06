@@ -221,7 +221,7 @@ export const VideoArchive = () => {
         { client: "The Wrights", title: "Meaning Over Perfection", category: "Documentary", date: "2024", id: "5hHaTjQfdHw", thumb: "/assets/wedding/the_wrights_feature.jpg" },
         { client: "Matthew & Kayla Walker", title: "A Lasting Change", category: "Destination Wedding", date: "2022", id: "e71Fnrf9dkg", thumb: "/assets/wedding/matthew_kayla_feature.jpg" },
         { client: "Tommy & Katy Rivera", title: "Telling It Honestly", category: "Super 8 & Digital", date: "2023", id: "J4ztqwfltq0", thumb: "/assets/wedding/A7309490.jpg" },
-        { client: "Colton & Carlee Day", title: "Destination Story", category: "Documentary", date: "2024", id: "VQg4Yzz4mBI", thumb: "/assets/wedding/A7309921.jpg" },
+        { client: "Colton & Carlee Day", title: "Destination Story", category: "Documentary", date: "2024", id: "VQg4Yzz4mBI", thumb: "/assets/wedding/carlee_colton_thumb.png" },
         { client: "Joshua & Kayla Resto", title: "Our Perfect Day", category: "Highlight", date: "2022", id: "8oTBDVPsETA", thumb: "/assets/wedding/Evan Maggie Wedding-1(1).jpg" },
         { client: "Noah & Kate", title: "Moments That Matter", category: "Highlight Film", date: "2023", id: "jyub_SdF4co", thumb: "/assets/wedding/A7309466.jpg" },
         { client: "CJ & Elli", title: "The Visual Archive", category: "Feature Film", date: "2023", id: "F3fkYijcLw8", thumb: "/assets/wedding/A7309658.jpg" },
