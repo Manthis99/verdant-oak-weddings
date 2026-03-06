@@ -227,7 +227,7 @@ export const VideoArchive = () => {
         { client: "CJ & Elli", title: "The Visual Archive", category: "Feature Film", date: "2023", id: "F3fkYijcLw8", thumb: "/assets/wedding/cj_elli_thumb.png" },
         { client: "Preston & Jessika", title: "A Celebration of Love", category: "Highlight", date: "2023", id: "QNawhCavyZY", thumb: "/assets/wedding/preston_jessika_thumb.jpg" },
         { client: "Sam & Alyssa Freed", title: "Together Forever", category: "Highlight", date: "2023", id: "LjPIrZ5ZDtM", thumb: "/assets/wedding/sam_alyssa_thumb.png" },
-        { client: "Joshua & Kayla Resto", title: "Our Perfect Day", category: "Highlight", date: "2022", id: "8oTBDVPsETA", thumb: "/assets/wedding/Evan Maggie Wedding-1(1).jpg" }
+        { client: "Joshua & Kayla Resto", title: "Our Perfect Day", category: "Highlight", date: "2022", id: "8oTBDVPsETA", thumb: "/assets/wedding/joshua_kayla_thumb.jpg" }
     ];
 
     return (
