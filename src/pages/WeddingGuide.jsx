@@ -389,6 +389,7 @@ const WeddingGuide = () => {
                "/assets/wedding/evan_maggie_france-2025-26.jpg",
                "/assets/wedding/evan_maggie_france-2025-29.jpg",
                "/assets/wedding/evan_maggie_france-2025-60.jpg",
+               "/assets/wedding/Edge of the world Jeskes-engagement-15.jpg",
                "/assets/wedding/evan_maggie_france-2025-61.jpg",
                "/assets/wedding/evan_maggie_france-2025-62.jpg",
                "/assets/wedding/france-2025-136.jpg",
@@ -411,9 +412,21 @@ const WeddingGuide = () => {
                     Your engagement session should be fun and give a glimpse into your wedding day! Dream BIG. I love doing something fun and different for every couple.
                 </p>
             </div>
-            <div className="w-full md:w-2/3 grid grid-cols-2 gap-4">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-xl"><img src="/assets/wedding/Esther and Zeke Engagment-12.jpg" className="w-full h-full object-cover" alt="Engagement"/></div>
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 mt-12 shadow-xl"><img src="/assets/wedding/Esther and Zeke Engagment-137.jpg" className="w-full h-full object-cover" alt="Engagement"/></div>
+            <div className="w-full md:w-2/3">
+                <div className="flex gap-4 px-4 overflow-x-auto pb-8 snap-x" style={{ scrollbarWidth: 'none' }}>
+                    {[
+                        "/assets/wedding/Esther and Zeke Engagment-12.jpg",
+                        "/assets/wedding/Matthew and Kayla Engagement Photo.jpg",
+                        "/assets/wedding/Esther and Zeke Engagment-137.jpg",
+                        "/assets/wedding/Camp_Eggie-Michaels_edits-engagement-76.jpg",
+                        "/assets/wedding/Esther and Zeke Engagment-123.jpg",
+                        "/assets/wedding/Esther and Zeke Engagment-30.jpg"
+                    ].map((img, i) => (
+                        <div key={i} className="min-w-[70vw] md:min-w-[300px] h-[400px] flex-shrink-0 snap-center rounded-2xl overflow-hidden grayscale active:grayscale-0 hover:grayscale-0 transition-all duration-700 pointer-events-auto shadow-xl">
+                            <img src={img} alt="Engagement Memory" className="w-full h-full object-cover pointer-events-none" />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
       </section>
