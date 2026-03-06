@@ -60,7 +60,7 @@ const Footer = ({ hidePreFooter }) => {
             <h4 className="font-data text-sm text-moss uppercase tracking-widest mb-2 font-bold">Navigation</h4>
             {/* <a href="#/" className="font-body text-cream hover:text-clay transition-colors text-lg">Home</a> */}
             <a href="#/" className="font-body text-cream hover:text-clay transition-colors text-lg">Weddings</a>
-            <a href="#/wedding-guide" className="font-body text-cream hover:text-clay transition-colors text-lg">The Guide</a>
+            <a href="#/wedding-access" className="font-body text-cream hover:text-clay transition-colors text-lg">The Guide</a>
             <a href="#/about" className="font-body text-cream hover:text-clay transition-colors text-lg">About</a>
             <a href="#/access" className="font-body text-cream hover:text-clay transition-colors text-lg">Investment Guide</a>
             {/* <a href="#/weddings" className="font-body text-cream hover:text-clay transition-colors text-lg">Weddings</a> */}
