@@ -220,14 +220,14 @@ export const VideoArchive = () => {
         { client: "Zach & Marissa", title: "Cinematic Feature 01", category: "Highlight Film", date: "2024", id: "B6YO1o6t13s", thumb: "/assets/wedding/zach_marissa_feature_v3.jpg" },
         { client: "The Wrights", title: "Meaning Over Perfection", category: "Documentary", date: "2024", id: "5hHaTjQfdHw", thumb: "/assets/wedding/the_wrights_feature.jpg" },
         { client: "Matthew & Kayla Walker", title: "A Lasting Change", category: "Destination Wedding", date: "2022", id: "e71Fnrf9dkg", thumb: "/assets/wedding/matthew_kayla_feature.jpg" },
-        { client: "Tommy & Katy Rivera", title: "Telling It Honestly", category: "Super 8 & Digital", date: "2023", id: "J4ztqwfltq0", thumb: "/assets/wedding/A7309490.jpg" },
         { client: "Colton & Carlee Day", title: "Destination Story", category: "Documentary", date: "2024", id: "VQg4Yzz4mBI", thumb: "/assets/wedding/carlee_colton_thumb.png" },
-        { client: "Joshua & Kayla Resto", title: "Our Perfect Day", category: "Highlight", date: "2022", id: "8oTBDVPsETA", thumb: "/assets/wedding/Evan Maggie Wedding-1(1).jpg" },
+        { client: "Robby & Jordan Tucker", title: "Wedding Film", category: "Highlight", date: "2024", id: "flrePRRpblM", thumb: "/assets/wedding/robby_jordan_thumb.png" },
+        { client: "Tommy & Katy Rivera", title: "Telling It Honestly", category: "Super 8 & Digital", date: "2023", id: "J4ztqwfltq0", thumb: "/assets/wedding/A7309490.jpg" },
         { client: "Noah & Kate", title: "Moments That Matter", category: "Highlight Film", date: "2023", id: "jyub_SdF4co", thumb: "/assets/wedding/A7309466.jpg" },
         { client: "CJ & Elli", title: "The Visual Archive", category: "Feature Film", date: "2023", id: "F3fkYijcLw8", thumb: "/assets/wedding/A7309658.jpg" },
-        { client: "Robby & Jordan Tucker", title: "Wedding Film", category: "Highlight", date: "2024", id: "flrePRRpblM", thumb: "/assets/wedding/robby_jordan_thumb.png" },
         { client: "Preston & Jessika", title: "A Celebration of Love", category: "Highlight", date: "2023", id: "QNawhCavyZY", thumb: "/assets/wedding/preston_jessika_thumb.jpg" },
-        { client: "Sam & Alyssa Freed", title: "Together Forever", category: "Highlight", date: "2023", id: "LjPIrZ5ZDtM", thumb: "/assets/wedding/sam_alyssa_thumb.png" }
+        { client: "Sam & Alyssa Freed", title: "Together Forever", category: "Highlight", date: "2023", id: "LjPIrZ5ZDtM", thumb: "/assets/wedding/sam_alyssa_thumb.png" },
+        { client: "Joshua & Kayla Resto", title: "Our Perfect Day", category: "Highlight", date: "2022", id: "8oTBDVPsETA", thumb: "/assets/wedding/Evan Maggie Wedding-1(1).jpg" }
     ];
 
     return (
@@ -343,77 +343,55 @@ export const VideoArchive = () => {
                         <div className="h-px bg-accent-blue/20 flex-grow"></div>
                     </div>
 
-                    {/* Header Row (Desktop Only) */}
-                    <div className="hidden md:grid grid-cols-12 gap-4 pb-4 border-b-2 border-charcoal/20 font-data text-xs text-charcoal/50 uppercase tracking-widest mb-6 video-row">
-                        <div className="col-span-4">Client / Entity</div>
-                        <div className="col-span-5">Project Title</div>
-                        <div className="col-span-3 text-right">Category</div>
-                    </div>
-
-                    {/* List Rows */}
-                    <div className="flex flex-col gap-4 md:gap-0">
+                    {/* Archive Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {videos.slice(3).map((vid, sliceIndex) => {
                             const i = sliceIndex + 3;
                             return (
-                            <div key={i} className="video-row group flex flex-col border-b border-charcoal/10 md:py-6 relative">
-                                {/* The clickable row */}
-                                <div 
-                                    onClick={() => setActiveVideoIndex(activeVideoIndex === i ? null : i)}
-                                    className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center cursor-pointer p-4 md:p-0 rounded-2xl md:rounded-none bg-white md:bg-transparent shadow-sm md:shadow-none hover:bg-white/50 transition-colors"
-                                >
-                                    {/* Column 1: Number + Thumb + Client */}
-                                    <div className="col-span-1 md:col-span-4 flex items-center gap-6">
-                                        <span className="font-data text-charcoal/30 text-xs hidden md:block">
-                                            {String(i + 1).padStart(2, '0')}
-                                        </span>
-                                        <div className="w-16 h-16 md:w-12 md:h-12 shrink-0 rounded-lg md:rounded-full overflow-hidden border border-charcoal/10 relative">
-                                            <div className="absolute inset-0 bg-moss/10 mix-blend-overlay z-10 pointer-events-none"></div>
-                                            <img src={vid.thumb} alt={vid.client} className="w-full h-full object-cover grayscale-[30%]" />
-                                        </div>
-                                        <div className="flex flex-col md:block">
-                                            <span className="font-data text-[10px] text-charcoal/50 uppercase tracking-widest md:hidden mb-1">Client</span>
-                                            <h3 className="font-heading font-bold text-lg md:text-xl text-charcoal group-hover:text-moss transition-colors">{vid.client}</h3>
+                                <div key={i} className="video-row group flex flex-col relative">
+                                    {/* Video Trigger */}
+                                    <div 
+                                        onClick={() => setActiveVideoIndex(activeVideoIndex === i ? null : i)}
+                                        className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-500 cursor-pointer mb-4"
+                                    >
+                                        <img src={vid.thumb} alt={vid.client} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                                        <div className="absolute inset-0 bg-charcoal/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                                        
+                                        {/* Play Button Overlay */}
+                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                            <div className="w-12 h-12 rounded-full bg-charcoal/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 transform scale-95 shadow-lg">
+                                                <svg className="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    {/* Column 2: Project Title */}
-                                    <div className="col-span-1 md:col-span-5 flex flex-col md:block">
-                                        <span className="font-data text-[10px] text-charcoal/50 uppercase tracking-widest md:hidden mb-1">Project Title</span>
-                                        <p className="font-drama italic text-2xl md:text-3xl text-charcoal/80">{vid.title}</p>
+                                    {/* Subtext info */}
+                                    <div className="flex flex-col gap-1 px-1">
+                                        <div className="flex items-center justify-between text-charcoal">
+                                            <h4 className="font-heading font-bold text-lg leading-tight uppercase tracking-tight">{vid.client}</h4>
+                                            <span className="font-data text-[10px] text-charcoal/40 uppercase tracking-widest">{String(i + 1).padStart(2, '0')}</span>
+                                        </div>
+                                        <div className="font-data text-[10px] text-charcoal/60 uppercase tracking-widest">
+                                            {vid.date}
+                                        </div>
                                     </div>
 
-                                    {/* Column 3: Category & Play Button */}
-                                    <div className="col-span-1 md:col-span-3 flex items-center justify-between md:justify-end gap-6">
-                                        <div className="flex flex-col md:items-end">
-                                            <span className="font-data text-[10px] text-charcoal/50 uppercase tracking-widest md:hidden mb-1">Category</span>
-                                            <p className="font-data text-xs text-charcoal/60 uppercase tracking-widest text-left md:text-right">{vid.category}</p>
-                                        </div>
-                                        <div className={`w-10 h-10 rounded-full border border-charcoal/20 flex items-center justify-center transition-all duration-300 shrink-0 ${activeVideoIndex === i ? 'bg-moss border-moss text-cream' : 'text-charcoal group-hover:bg-moss/10 group-hover:border-moss/30 group-hover:text-moss'}`}>
-                                            {activeVideoIndex === i ? (
-                                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                                            ) : (
-                                                <svg className="w-4 h-4 translate-x-px" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                    {/* Expanded Detail / Video Player */}
+                                    <div className={`col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-4 relative z-50 isolate mix-blend-normal overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeVideoIndex === i ? 'max-h-[800px] mt-6 mb-8 pb-6' : 'max-h-0'}`}>
+                                        <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-charcoal/10 mix-blend-normal">
+                                            {activeVideoIndex === i && (
+                                                <iframe 
+                                                    className="absolute top-0 left-0 w-full h-full"
+                                                    src={`https://www.youtube.com/embed/${vid.id}?autoplay=1&modestbranding=1&rel=0`}
+                                                    title={vid.title}
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    frameBorder="0"
+                                                ></iframe>
                                             )}
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* Expanded Detail / Video Player */}
-                                <div className={`relative z-50 isolate mix-blend-normal overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeVideoIndex === i ? 'max-h-[800px] mt-6 md:mt-8 pb-6 md:pb-8' : 'max-h-0'}`}>
-                                    <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-charcoal/10 mix-blend-normal">
-                                        {activeVideoIndex === i && (
-                                            <iframe 
-                                                className="absolute top-0 left-0 w-full h-full"
-                                                src={`https://www.youtube.com/embed/${vid.id}?autoplay=1&modestbranding=1&rel=0`}
-                                                title={vid.title}
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                frameBorder="0"
-                                            ></iframe>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
                             );
                         })}
                     </div>
