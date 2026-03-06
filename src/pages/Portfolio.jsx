@@ -217,7 +217,7 @@ export const VideoArchive = () => {
     }, []);
 
     const videos = [
-        { client: "Zach & Marissa", title: "Cinematic Feature 01", category: "Highlight Film", date: "2024", id: "B6YO1o6t13s", thumb: "/assets/wedding/zach_marissa_feature_new.png" },
+        { client: "Zach & Marissa", title: "Cinematic Feature 01", category: "Highlight Film", date: "2024", id: "B6YO1o6t13s", thumb: "/assets/wedding/zach_marissa_feature_v3.jpg" },
         { client: "The Wrights", title: "Meaning Over Perfection", category: "Documentary", date: "2024", id: "5hHaTjQfdHw", thumb: "/assets/wedding/the_wrights_feature.jpg" },
         { client: "Matthew & Kayla Walker", title: "A Lasting Change", category: "Destination Wedding", date: "2022", id: "e71Fnrf9dkg", thumb: "/assets/wedding/matthew_kayla_feature.jpg" },
         { client: "Tommy & Katy Rivera", title: "Telling It Honestly", category: "Super 8 & Digital", date: "2023", id: "J4ztqwfltq0", thumb: "/assets/wedding/A7309490.jpg" },
