@@ -391,7 +391,7 @@ const WeddingGuide = () => {
                "/assets/wedding/evan_maggie_france-2025-64.jpg",
                "/assets/wedding/france-2025-147.jpg"
            ].map((img, i) => (
-               <div key={i} className="min-w-[80vw] md:min-w-[400px] h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden grayscale active:grayscale-0 hover:grayscale-0 transition-all duration-700 pointer-events-auto">
+               <div key={i} className="min-w-[80vw] md:min-w-[400px] aspect-[3/4] md:aspect-auto md:h-[500px] flex-shrink-0 snap-center rounded-2xl overflow-hidden grayscale active:grayscale-0 hover:grayscale-0 transition-all duration-700 pointer-events-auto">
                    <img src={img} alt="Destination Preview" className="w-full h-full object-cover pointer-events-none" />
                </div>
            ))}
@@ -418,7 +418,7 @@ const WeddingGuide = () => {
                         "/assets/wedding/Esther and Zeke Engagment-123.jpg",
                         "/assets/wedding/Esther and Zeke Engagment-30.jpg"
                     ].map((img, i) => (
-                        <div key={i} className="min-w-[70vw] md:min-w-[300px] h-[400px] flex-shrink-0 snap-center rounded-2xl overflow-hidden grayscale active:grayscale-0 hover:grayscale-0 transition-all duration-700 pointer-events-auto shadow-xl">
+                        <div key={i} className="min-w-[70vw] md:min-w-[300px] aspect-[3/4] md:aspect-auto md:h-[400px] flex-shrink-0 snap-center rounded-2xl overflow-hidden grayscale active:grayscale-0 hover:grayscale-0 transition-all duration-700 pointer-events-auto shadow-xl">
                             <img src={img} alt="Engagement Memory" className="w-full h-full object-cover pointer-events-none" />
                         </div>
                     ))}
