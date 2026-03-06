@@ -9,6 +9,7 @@ import WeddingGuide from './pages/WeddingGuide';
 import WeddingAccess from './pages/WeddingAccess';
 import InvestmentGuide from './pages/InvestmentGuide';
 import InvestmentAccess from './pages/InvestmentAccess';
+import { Analytics } from '@vercel/analytics/react';
 
 const App = () => {
   const [currentRoute, setCurrentRoute] = useState(window.location.hash.slice(1) || '/');
@@ -50,9 +51,8 @@ const App = () => {
       {currentRoute === '/access' && <InvestmentAccess />}
       {/* {currentRoute === '/flagship' && <Flagship />} */}
       {currentRoute === '/portfolio' && <Portfolio />}
-      {/* {currentRoute === '/weddings' && <Weddings />} */}
-      
       <Footer hidePreFooter={currentRoute === '/' || currentRoute === '/book' || currentRoute === '/investment' || currentRoute === '/access' || currentRoute === '/portfolio' || currentRoute === '/wedding-access'} />
+      <Analytics />
     </div>
   );
 };
