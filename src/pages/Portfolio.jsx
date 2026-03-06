@@ -222,7 +222,7 @@ export const VideoArchive = () => {
         { client: "Matthew & Kayla Walker", title: "A Lasting Change", category: "Destination Wedding", date: "2022", id: "e71Fnrf9dkg", thumb: "/assets/wedding/matthew_kayla_feature_v2.jpg" },
         { client: "Colton & Carlee Day", title: "Destination Story", category: "Documentary", date: "2024", id: "VQg4Yzz4mBI", thumb: "/assets/wedding/carlee_colton_thumb.png" },
         { client: "Robby & Jordan Tucker", title: "Wedding Film", category: "Highlight", date: "2024", id: "flrePRRpblM", thumb: "/assets/wedding/robby_jordan_thumb.png" },
-        { client: "Tommy & Katy Rivera", title: "Telling It Honestly", category: "Super 8 & Digital", date: "2023", id: "J4ztqwfltq0", thumb: "/assets/wedding/A7309490.jpg" },
+        { client: "Tommy & Katy Rivera", title: "Telling It Honestly", category: "Super 8 & Digital", date: "2023", id: "J4ztqwfltq0", thumb: "/assets/wedding/tommy_katy_thumb.jpg" },
         { client: "Noah & Kate", title: "Moments That Matter", category: "Highlight Film", date: "2023", id: "jyub_SdF4co", thumb: "/assets/wedding/A7309466.jpg" },
         { client: "CJ & Elli", title: "The Visual Archive", category: "Feature Film", date: "2023", id: "F3fkYijcLw8", thumb: "/assets/wedding/cj_elli_thumb.png" },
         { client: "Preston & Jessika", title: "A Celebration of Love", category: "Highlight", date: "2023", id: "QNawhCavyZY", thumb: "/assets/wedding/preston_jessika_thumb.jpg" },
@@ -375,26 +375,31 @@ export const VideoArchive = () => {
                                             {vid.date}
                                         </div>
                                     </div>
-
-                                    {/* Expanded Detail / Video Player */}
-                                    <div className={`col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-4 relative z-50 isolate mix-blend-normal overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${activeVideoIndex === i ? 'max-h-[800px] mt-6 mb-8 pb-6' : 'max-h-0'}`}>
-                                        <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-charcoal/10 mix-blend-normal">
-                                            {activeVideoIndex === i && (
-                                                <iframe 
-                                                    className="absolute top-0 left-0 w-full h-full"
-                                                    src={`https://www.youtube.com/embed/${vid.id}?autoplay=1&modestbranding=1&rel=0`}
-                                                    title={vid.title}
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowFullScreen
-                                                    frameBorder="0"
-                                                ></iframe>
-                                            )}
-                                        </div>
-                                    </div>
                                 </div>
                             );
                         })}
                     </div>
+
+                    {/* Lightbox Modal for Grid Videos */}
+                    {activeVideoIndex !== null && activeVideoIndex >= 3 && (
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-moss/95 backdrop-blur-xl p-4 md:p-8" onClick={() => setActiveVideoIndex(null)}>
+                            <div className="relative w-full max-w-6xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10" onClick={e => e.stopPropagation()}>
+                                <iframe 
+                                    className="absolute top-0 left-0 w-full h-full"
+                                    src={`https://www.youtube.com/embed/${videos[activeVideoIndex].id}?autoplay=1&modestbranding=1&rel=0`}
+                                    title={videos[activeVideoIndex].title}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    frameBorder="0"
+                                ></iframe>
+                            </div>
+                            <button onClick={() => setActiveVideoIndex(null)} className="absolute top-6 right-6 md:top-10 md:right-10 text-cream/70 hover:text-clay transition-colors group">
+                                <svg className="w-10 h-10 md:w-12 md:h-12 group-hover:scale-90 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

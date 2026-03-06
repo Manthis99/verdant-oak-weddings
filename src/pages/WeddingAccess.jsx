@@ -5,7 +5,6 @@ const WeddingAccess = () => {
     const containerRef = useRef(null);
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-    const [weddingDate, setWeddingDate] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
 
@@ -30,16 +29,36 @@ const WeddingAccess = () => {
         setError('');
 
         if (!email || !name) {
-            setError('Please provide your name and email.');
+            setError('Please provide both your name and email.');
             setIsSubmitting(false);
             return;
         }
 
         try {
-            // Simulated network delay
+            // =========================================================================
+            // INTEGRATION POINT: Replace this Web3Forms/Formspree/Flodesk endpoint
+            // =========================================================================
+            const endpoint = 'https://api.web3forms.com/submit';
+
+            // Simulate form processing for now:
             await new Promise((resolve) => setTimeout(resolve, 1500));
 
-            // Store permanent flag and redirect
+            // Uncomment the below to integrate real form provider:
+            /*
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ 
+                    access_key: "fbc9017c-e67a-4856-879c-6b92a7f6a18a", 
+                    subject: "New Wedding Guide Lead",
+                    name, 
+                    email 
+                }),
+            });
+            if (!response.ok) throw new Error('Network response was not ok');
+            */
+
+            // Success!
             localStorage.setItem('unlocked_wedding_guide', 'true');
             window.location.hash = '#/wedding-guide';
             window.scrollTo(0, 0);
@@ -52,25 +71,26 @@ const WeddingAccess = () => {
     };
 
     return (
-        <main ref={containerRef} className="bg-moss/95 text-cream min-h-screen pt-40 md:pt-48 pb-32 px-6 relative flex flex-col justify-center items-center">
+        <main ref={containerRef} className="bg-moss text-cream min-h-screen pt-40 md:pt-48 pb-32 px-6 relative flex flex-col justify-center items-center">
             {/* Background Details */}
             <div className="absolute top-0 right-0 w-[80vw] h-[120%] opacity-[0.03] select-none pointer-events-none transform rotate-3 mix-blend-screen">
-                <div className="w-full h-full bg-cover bg-center bg-no-repeat grayscale" style={{ backgroundImage: `url('/assets/wedding/wedding guide photos/Wise Wedding-165.jpg')` }}></div>
+                <div className="w-full h-full bg-contain bg-right-top bg-no-repeat grayscale" style={{ backgroundImage: `url('/assets/blueprint_residential_elevation_1772202237636.png')` }}></div>
             </div>
             <div className="absolute inset-0 noise-overlay mix-blend-overlay opacity-30 pointer-events-none"></div>
 
             <div className="max-w-xl mx-auto w-full relative z-10">
-                <div className="bg-[#1a231e]/90 backdrop-blur-3xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <div className="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative">
                     
-                    {/* Decorative Top Line */}
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-clay/20 via-clay to-clay/20"></div>
-
                     {/* Header */}
-                    <div className="mb-10 text-center stagger-fade flex flex-col items-center">
-                        <p className="font-data text-clay text-sm uppercase tracking-widest mb-4 inline-block border-b border-clay/30 pb-2">Exclusive Access</p>
-                        <h1 className="font-drama italic text-4xl md:text-5xl mb-4 text-cream">The Wedding Guide</h1>
-                        <p className="font-body text-cream/80 text-lg leading-relaxed max-w-sm mx-auto">
-                            Enter your details below to instantly unlock the Verdant Oak planning guide, timelines, and complete package information.
+                    <div className="mb-10 text-center stagger-fade">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-clay/20 text-clay mb-6 border border-clay/30">
+                            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h1 className="font-drama italic text-4xl md:text-5xl mb-4 text-cream">Wedding Guide</h1>
+                        <p className="font-body text-cream/70 text-lg leading-relaxed max-w-sm mx-auto">
+                            Enter your details below to instantly unlock our wedding collections and approach to film & photography.
                         </p>
                     </div>
 
@@ -83,22 +103,22 @@ const WeddingAccess = () => {
                         )}
                         
                         <div className="relative group">
-                            <label htmlFor="name" className="absolute -top-2 left-4 px-2 bg-[#1a231e] text-xs font-data uppercase tracking-widest text-cream/70 group-focus-within:text-clay transition-colors z-10">
-                                First & Last Name
+                            <label htmlFor="name" className="absolute -top-2 left-4 px-2 bg-moss text-xs font-data uppercase tracking-widest text-cream/70 group-focus-within:text-clay transition-colors z-10">
+                                First Name
                             </label>
                             <input
                                 type="text"
                                 id="name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-cream font-body placeholder-white/10 focus:outline-none focus:border-clay focus:bg-black/30 transition-colors relative z-0 shadow-[inset_0_2px_10px_rgba(0,0,0,0.2)]"
-                                placeholder="E.g. Taylor & Jordan"
+                                className="w-full bg-transparent border-2 border-white/20 rounded-xl px-5 py-4 text-cream font-body placeholder-white/20 focus:outline-none focus:border-clay transition-colors relative z-0"
+                                placeholder="E.g. Taylor"
                                 required
                             />
                         </div>
 
                         <div className="relative group">
-                            <label htmlFor="email" className="absolute -top-2 left-4 px-2 bg-[#1a231e] text-xs font-data uppercase tracking-widest text-cream/70 group-focus-within:text-clay transition-colors z-10">
+                            <label htmlFor="email" className="absolute -top-2 left-4 px-2 bg-moss text-xs font-data uppercase tracking-widest text-cream/70 group-focus-within:text-clay transition-colors z-10">
                                 Email Address
                             </label>
                             <input
@@ -106,38 +126,24 @@ const WeddingAccess = () => {
                                 id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-cream font-body placeholder-white/10 focus:outline-none focus:border-clay focus:bg-black/30 transition-colors relative z-0 shadow-[inset_0_2px_10px_rgba(0,0,0,0.2)]"
-                                placeholder="hello@example.com"
+                                className="w-full bg-transparent border-2 border-white/20 rounded-xl px-5 py-4 text-cream font-body placeholder-white/20 focus:outline-none focus:border-clay transition-colors relative z-0"
+                                placeholder="taylor@example.com"
                                 required
-                            />
-                        </div>
-
-                        <div className="relative group">
-                            <label htmlFor="weddingDate" className="absolute -top-2 left-4 px-2 bg-[#1a231e] text-xs font-data uppercase tracking-widest text-cream/70 group-focus-within:text-clay transition-colors z-10">
-                                Wedding Date (Optional)
-                            </label>
-                            <input
-                                type="text"
-                                id="weddingDate"
-                                value={weddingDate}
-                                onChange={(e) => setWeddingDate(e.target.value)}
-                                className="w-full bg-black/20 border border-white/10 rounded-xl px-5 py-4 text-cream font-body placeholder-white/10 focus:outline-none focus:border-clay focus:bg-black/30 transition-colors relative z-0 shadow-[inset_0_2px_10px_rgba(0,0,0,0.2)]"
-                                placeholder="MM/DD/YYYY or Season"
                             />
                         </div>
 
                         <button 
                             type="submit" 
                             disabled={isSubmitting}
-                            className={`mt-6 w-full py-5 rounded-xl font-heading font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 transition-all duration-300 shadow-xl border border-transparent ${
+                            className={`mt-4 w-full py-5 rounded-xl font-heading font-semibold text-lg flex items-center justify-center gap-3 transition-all duration-300 shadow-xl border border-transparent ${
                                 isSubmitting 
-                                ? 'bg-white/5 text-white/30 cursor-not-allowed border-white/5' 
+                                ? 'bg-white/10 text-white/50 cursor-not-allowed' 
                                 : 'bg-clay text-cream hover:bg-clay/90 hover:-translate-y-1 shadow-clay/20'
                             }`}
                         >
                             {isSubmitting ? (
                                 <>
-                                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white/50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white/50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
@@ -146,7 +152,7 @@ const WeddingAccess = () => {
                             ) : (
                                 <>
                                     Reveal the Guide
-                                    <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </>
@@ -154,8 +160,8 @@ const WeddingAccess = () => {
                         </button>
                     </form>
 
-                    <p className="mt-8 text-center text-cream/40 text-xs font-body px-4 stagger-fade">
-                        By submitting, you agree to receive occasional updates. Your information is securely stored and never shared.
+                    <p className="mt-8 text-center text-cream/40 text-sm font-body px-4 stagger-fade">
+                        By submitting, you agree to receive occasional updates. We never share your email.
                     </p>
                 </div>
             </div>
