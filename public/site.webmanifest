@@ -1,0 +1,15 @@
+{
+  "name": "Verdant Oak Weddings",
+  "short_name": "Verdant Oak",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#2E4036",
+  "background_color": "#F2F0E9",
+  "display": "standalone"
+}
