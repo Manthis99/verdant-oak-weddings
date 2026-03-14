@@ -11,9 +11,16 @@ const BookCall = () => {
       date: '',
       message: ''
   });
-  
+
   const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
   const [errorMessage, setErrorMessage] = useState('');
+
+  const firePinterestLead = () => {
+    if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
+      // Fire Lead event only when we know the inquiry submission succeeded.
+      window.pintrk('track', 'Lead');
+    }
+  };
 
   useEffect(() => {
     // Scroll to top on mount
@@ -52,6 +59,7 @@ const BookCall = () => {
               // Simulated success for preview purposes if key hasn't been set yet
               await new Promise(r => setTimeout(r, 1500));
               setStatus('success');
+              firePinterestLead();
               return;
           }
 
@@ -75,6 +83,7 @@ const BookCall = () => {
           const result = await response.json();
           if (result.success) {
               setStatus('success');
+              firePinterestLead();
           } else {
               throw new Error(result.message || "Failed to submit");
           }

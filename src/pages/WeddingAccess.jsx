@@ -8,6 +8,12 @@ const WeddingAccess = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
 
+    const firePinterestLead = () => {
+        if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
+            window.pintrk('track', 'Lead');
+        }
+    };
+
     useEffect(() => {
         if (localStorage.getItem('unlocked_wedding_guide') === 'true') {
             window.location.hash = '#/wedding-guide';
@@ -59,6 +65,7 @@ const WeddingAccess = () => {
             */
 
             // Success!
+            firePinterestLead();
             localStorage.setItem('unlocked_wedding_guide', 'true');
             window.location.hash = '#/wedding-guide';
             window.scrollTo(0, 0);

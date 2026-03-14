@@ -8,6 +8,12 @@ const InvestmentAccess = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
 
+    const firePinterestLead = () => {
+        if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
+            window.pintrk('track', 'Lead');
+        }
+    };
+
     useEffect(() => {
         if (localStorage.getItem('unlocked_investment') === 'true') {
             window.location.hash = '#/investment';
@@ -66,6 +72,7 @@ const InvestmentAccess = () => {
             */
 
             // Success! Store a permanent flag in localStorage and redirect to the actual guide
+            firePinterestLead();
             localStorage.setItem('unlocked_investment', 'true');
             window.location.hash = '#/investment';
             window.scrollTo(0, 0);
