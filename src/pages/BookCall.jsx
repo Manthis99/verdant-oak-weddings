@@ -17,8 +17,11 @@ const BookCall = () => {
 
   const firePinterestLead = () => {
     if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
-      // Fire Lead event only when we know the inquiry submission succeeded.
-      window.pintrk('track', 'Lead');
+      const eventId = `book-call-${Date.now()}`;
+      window.pintrk('track', 'lead', {
+        event_id: eventId,
+        lead_type: 'Inquiry',
+      });
     }
   };
 

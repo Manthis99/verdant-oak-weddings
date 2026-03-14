@@ -10,7 +10,11 @@ const InvestmentAccess = () => {
 
     const firePinterestLead = () => {
         if (typeof window !== 'undefined' && typeof window.pintrk === 'function') {
-            window.pintrk('track', 'Lead');
+            const eventId = `investment-guide-${Date.now()}`;
+            window.pintrk('track', 'lead', {
+                event_id: eventId,
+                lead_type: 'Investment Guide',
+            });
         }
     };
 
