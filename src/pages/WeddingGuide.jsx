@@ -359,13 +359,16 @@ const WeddingGuide = () => {
         <p className="font-drama italic text-2xl md:text-4xl text-moss mb-12">your love in your element</p>
         
         <p className="text-lg opacity-80 max-w-3xl mb-8 leading-relaxed">
-            Another thing about me is I LOVE to travel. Coast to coast within the United States or even abroad, I’ll be there to capture your destination wedding or elopement. Let’s make your dream wedding come true in a place that represents your love the best.
+            Another thing about me is that I LOVE to travel. Whether you’re getting married coast to coast within the United States or somewhere abroad, I’ll be there to capture your destination wedding or elopement.
         </p>
         <p className="text-lg opacity-80 max-w-3xl mb-8 leading-relaxed">
-            My destination wedding packages INCLUDE travel! Prices may vary on location. Please reach out directly for destination packages for location-specific travel costs.
+            Destination wedding coverage is custom quoted based on location, travel needs, and the scope of your day. Travel costs are not included in the base package and will be added to your final quote.
         </p>
         <p className="text-lg opacity-80 max-w-3xl mb-8 leading-relaxed">
-            Elopements don’t have to be destinations though! This can include courthouse coverage and/or local elopements. You dream it, I’ll photograph it for you! <strong className="font-heading tracking-widest uppercase">Elopement coverage begins at $500 per hour.</strong>
+            Elopements don’t have to be far away, though. Whether it’s a courthouse ceremony, a local elopement, or an intimate celebration somewhere meaningful, I’d love to photograph it for you.
+        </p>
+        <p className="text-lg opacity-80 max-w-3xl mb-8 leading-relaxed">
+            <strong className="font-heading tracking-widest uppercase">Elopement coverage begins at $500 per hour.</strong>
         </p>
         
         <div className="w-24 border-t border-charcoal/20 my-8" />
