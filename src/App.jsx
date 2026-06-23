@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import About from './pages/About';
@@ -51,6 +52,7 @@ const App = () => {
       {/* {currentRoute === '/flagship' && <Flagship />} */}
       {currentRoute === '/portfolio' && <Portfolio />}
       <Footer hidePreFooter={currentRoute === '/' || currentRoute === '/book' || currentRoute === '/investment' || currentRoute === '/access' || currentRoute === '/portfolio' || currentRoute === '/wedding-access'} />
+      <SpeedInsights />
     </div>
   );
 };
