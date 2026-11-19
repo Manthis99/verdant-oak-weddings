@@ -1,6 +1,14 @@
 {
   "headers": [
     {
+      "source": "/rachel-larry",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/rachel-larry/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
       "source": "/pinterest/(.*)",
       "headers": [
         {
