@@ -46,8 +46,8 @@ const RachelLarryFilm = ({ youtubeVideoId = null }) => {
                     )}
                 </section>
 
-                <p className="mt-10 text-center font-data text-xs uppercase tracking-[0.2em] text-moss">
-                    With love, Verdant Oak
+                <p className="mt-10 text-center font-drama text-3xl italic text-moss">
+                    With love, Michael
                 </p>
             </div>
         </main>
