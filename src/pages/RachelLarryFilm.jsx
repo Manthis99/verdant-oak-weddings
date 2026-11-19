@@ -46,6 +46,48 @@ const RachelLarryFilm = ({ youtubeVideoId = null }) => {
                     )}
                 </section>
 
+                <section aria-labelledby="marriage-prayer-title" className="mx-auto mt-20 max-w-2xl border-t border-moss/20 pt-16 text-center md:mt-28 md:pt-20">
+                    <p className="mb-5 font-data text-xs uppercase tracking-[0.2em] text-moss">
+                        A prayer for your marriage
+                    </p>
+                    <h2 id="marriage-prayer-title" className="font-drama text-4xl italic text-charcoal md:text-5xl">
+                        At Start of Day
+                    </h2>
+
+                    <figure className="mt-10">
+                        <p className="mb-6 font-data text-xs uppercase tracking-[0.2em] text-clay">As one</p>
+                        <blockquote className="space-y-7 font-body text-lg leading-relaxed text-charcoal/85 md:text-xl md:leading-relaxed">
+                            <p>
+                                Make of our marriage<br />
+                                a holy habitation, O God.<br />
+                                Ever dwell in us and between us,<br />
+                                teaching us how to be to one another<br />
+                                a truer husband and a truer wife,
+                            </p>
+                            <p>
+                                your mercy mediating,<br />
+                                your love surrounding,<br />
+                                your Spirit quickening our hearts<br />
+                                unto conviction, repentance, and forgiveness,<br />
+                                unto compassion, kindness, and <span className="whitespace-nowrap">generosity—</span>
+                            </p>
+                            <p>
+                                That we would<br />
+                                in tenderness<br />
+                                seek always to know one another more,<br />
+                                and in tenderness<br />
+                                allow ourselves to be<br />
+                                more known.
+                            </p>
+                            <p className="font-drama text-3xl italic text-moss">Amen.</p>
+                        </blockquote>
+                        <figcaption className="mx-auto mt-10 max-w-md font-body text-sm leading-relaxed text-moss">
+                            From <cite>Every Moment Holy</cite><br />
+                            “A Liturgy for a Husband &amp; Wife at Start of Day”
+                        </figcaption>
+                    </figure>
+                </section>
+
                 <p className="mt-10 text-center font-drama text-3xl italic text-moss">
                     With love, Michael
                 </p>
