@@ -18,9 +18,6 @@ const RachelLarryFilm = ({ youtubeVideoId = null }) => {
                     <h1 className="font-drama text-6xl italic leading-tight tracking-tight sm:text-7xl md:text-9xl">
                         Rachel <span className="text-moss">&amp;</span> Larry
                     </h1>
-                    <p className="mx-auto mt-6 max-w-lg font-body text-lg leading-relaxed text-charcoal/70">
-                        A day to remember. A story to return to.
-                    </p>
                 </header>
 
                 <section aria-label="Rachel and Larry's wedding film" className="relative overflow-hidden rounded-[2rem] border border-charcoal/10 bg-charcoal text-cream shadow-2xl">
